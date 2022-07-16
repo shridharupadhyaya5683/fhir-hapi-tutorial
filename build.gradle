@@ -36,8 +36,12 @@ dependencies {
     //FHIR-related
     implementation group: 'ca.uhn.hapi.fhir', name: 'hapi-fhir-base', version: '6.0.2'
     implementation group: 'ca.uhn.hapi.fhir', name: 'hapi-fhir-structures-r4', version: '6.0.2'
-    implementation group: 'ca.uhn.hapi.fhir', name: 'hapi-fhir-jpaserver-base', version: '6.0.2'
+    //implementation group: 'ca.uhn.hapi.fhir', name: 'hapi-fhir-jpaserver-base', version: '6.0.2'
 
+    implementation("ca.uhn.hapi.fhir:hapi-fhir-jpaserver-base:6.0.2") {
+        exclude group: 'org.elasticsearch.client', module: 'elasticsearch-rest-high-level-client'
+        exclude group: 'org.elasticsearch.client', module: 'elasticsearch-rest-client-sniffer'
+    }
 }
 
 tasks.named('test') {

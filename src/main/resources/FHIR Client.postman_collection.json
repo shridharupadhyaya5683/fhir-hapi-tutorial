@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "b8298557-f446-49af-9a56-d197ff429a52",
+		"name": "FHIR Client",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5283012"
+	},
+	"item": [
+		{
+			"name": "Fetch Metadata",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/metadata",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"metadata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patient Search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Patient?family=Chakravarty ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Patient"
+					],
+					"query": [
+						{
+							"key": "family",
+							"value": "Chakravarty "
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Patient By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Patient/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Patient",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
