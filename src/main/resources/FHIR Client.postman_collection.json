@@ -31,7 +31,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/Patient?family=Chakravarty ",
+					"raw": "http://localhost:8080/Patient?family=smith ",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -43,7 +43,7 @@
 					"query": [
 						{
 							"key": "family",
-							"value": "Chakravarty "
+							"value": "smith "
 						}
 					]
 				}

@@ -68,13 +68,15 @@ public class PatientResourceProvider implements IResourceProvider {
 
     patient.addIdentifier().setSystem("http://optum.com/MRNs").setValue("007");
 
-    patient.addName().setFamily("Chakravarty").addGiven("Mithun").addGiven("A");
+    patient.addName().setFamily("smith").addGiven("john").addGiven("johann");
 
-    patient.addAddress().addLine("Address Line 1");
+    patient.addAddress().addLine("123 James Avenue");
 
-    patient.addAddress().setCity("Mumbai");
+    patient.addAddress().setCity("Frisco");
 
-    patient.addAddress().setCountry("India");
+    patient.addAddress().setState("TX");
+
+    patient.addAddress().setCountry("USA");
 
     patient.addTelecom().setValue("111-111-1111");
 
