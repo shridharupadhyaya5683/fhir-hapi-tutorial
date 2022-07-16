@@ -18,7 +18,11 @@ import org.hl7.fhir.r5.model.Patient;
 
 public class PatientResourceProvider implements IResourceProvider {
 
-  private Map<String, Patient> patientMap = new HashMap<String, Patient>();
+  public PatientResourceProvider() {
+    loadDummyPatients();
+  }
+
+  private Map<String, Patient> patientMap = new HashMap<>();
 
   @Override
   public Class<? extends IBaseResource> getResourceType() {
@@ -28,8 +32,6 @@ public class PatientResourceProvider implements IResourceProvider {
 
   @Read()
   public Patient read(@IdParam IdType theId) {
-
-    loadDummyPatients();
 
     Patient retVal = patientMap.get(theId.getIdPart());
 
@@ -42,18 +44,15 @@ public class PatientResourceProvider implements IResourceProvider {
 
   @Search
   public List<Patient> search(@RequiredParam(name = Patient.SP_FAMILY) StringParam theParam) {
-    List<Patient> patients = new ArrayList<Patient>();
-    patients = this.searchByFamilyName(theParam.getValue());
+
+    List<Patient> patients = this.searchByFamilyName(theParam.getValue());
+
     return patients;
   }
 
   private List<Patient> searchByFamilyName(String familyName){
 
-    List<Patient> retPatients;
-
-    loadDummyPatients();
-
-    retPatients = patientMap.values()
+    List<Patient> retPatients = patientMap.values()
         .stream()
         .filter(next -> familyName.toLowerCase().equals(next.getNameFirstRep().getFamily().toLowerCase()))
         .collect(Collectors.toList());
